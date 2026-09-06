@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline — FootyLive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #040405;
+      color: #f4f4f5;
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Glow Effects */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-purple {
+      background: radial-gradient(circle, #8b5cf6 0%, transparent 80%);
+      width: 450px;
+      height: 450px;
+      top: -150px;
+      left: -150px;
+    }
+    .glow-emerald {
+      background: radial-gradient(circle, #10b981 0%, transparent 80%);
+      width: 400px;
+      height: 400px;
+      bottom: -150px;
+      right: -150px;
+    }
+
+    /* Glassmorphism Card */
+    .glass-card {
+      position: relative;
+      z-index: 10;
+      background: rgba(13, 13, 16, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 85%;
+      text-align: center;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px -10px rgba(139, 92, 246, 0.1);
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Whistle / Ball SVG */
+    .icon-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 72px;
+      width: 72px;
+      border-radius: 20px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      margin-bottom: 24px;
+      color: #a78bfa;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.3); border-color: rgba(139, 92, 246, 0.4); }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 14px;
+      color: #a1a1aa;
+      line-height: 1.5;
+      margin: 0 0 28px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.4);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px -5px rgba(124, 58, 237, 0.6);
+      background: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 11px;
+      color: #52525b;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-orb glow-purple"></div>
+  <div class="glow-orb glow-emerald"></div>
+
+  <div class="glass-card">
+    <div class="icon-container">
+      <!-- Wifi Off Lucide Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 1l22 22"/>
+        <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.5"/>
+        <path d="M5 12.5a10.94 10.94 0 0 1 5.17-2.39"/>
+        <path d="M10.71 5.05A16 16 0 0 1 22.58 9"/>
+        <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+    </div>
+    <h1>Connection Lost</h1>
+    <p>We are matching you up with streams, but you seem to have disconnected from the pitch. Check your internet connection and try reloading.</p>
+    <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+  </div>
+
+  <div class="footer">
+    © FootyLive. All match servers aggregated dynamically.
+  </div>
+</body>
+</html>
