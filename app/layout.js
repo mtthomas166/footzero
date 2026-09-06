@@ -5,9 +5,6 @@ import { Database } from 'lucide-react';
 export const metadata = {
   title: 'FootyLive — Live Football Streams',
   description: 'Watch live football matches free on FootyLive. Real-time scores and premium ad-free streams.',
-  verification: {
-    google: 'yP1P7adZL0cO99yr_S8GE_22PvKNNJCtO8R4J9B6p4Os',
-  },
 };
 
 export const viewport = {
@@ -20,7 +17,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        {/* Google Verification - manual to guarantee it */}
         <meta name="google-site-verification" content="yP1P7adZL0cO99yr_S8GE_22PvKNNJCtO8R4J9B6p4Os" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -90,12 +86,14 @@ export default function RootLayout({ children }) {
           </div>
         </header>
 
+        {/* Content wrapper */}
         <main className="relative z-10 w-full flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8 flex-1">
           <div className="w-full max-w-6xl mx-auto flex flex-col items-stretch">
             {children}
           </div>
         </main>
 
+        {/* Beautiful Simple Footer */}
         <footer className="relative z-10 border-t border-zinc-200 dark:border-zinc-900/60 py-8 px-4 bg-white/60 dark:bg-[#040405]/90 transition-all duration-300 flex justify-center w-full">
           <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-zinc-500 dark:text-zinc-600 px-4">
             <p>© {new Date().getFullYear()} FootyLive. All streaming sources are aggregated from third-party networks for validation purposes.</p>
