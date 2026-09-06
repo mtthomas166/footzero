@@ -6,7 +6,7 @@ export const metadata = {
   title: 'FootyLive — Live Football Streams',
   description: 'Watch live football matches free on FootyLive. Real-time scores and premium ad-free streams.',
   verification: {
-    google: '<meta name="google-site-verification" content="yP1P7adZLOc099yr_SBGE_22PyVKNJCt0R4j9B6p4Os" />',
+    google: 'yP1P7adZL0cO99yr_S8GE_22PvKNNJCtO8R4J9B6p4Os',
   },
 };
 
