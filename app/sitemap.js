@@ -1,21 +1,32 @@
 import { createMatchSlug } from '@/lib/utils/slug';
 
-const BASE_URL = 'https://footzero.vercel.app';
-
-async function getAllMatches() {
-  try {
-    // try to fetch from your api
-    const res = await fetch(`${BASE_URL}/api/matches`, { next: { revalidate: 3600 } });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data.matches || data || [];
-  } catch {
-    return [];
-  }
-}
+const BASE_URL = 'https://footzero-es32.vercel.app';
 
 export default async function sitemap() {
-  const matches = await getAllMatches();
+  let matches = [];
+
+  try {
+    // try to load matches directly from your engine
+    const engine = await import('@/lib/streamEngine');
+    
+    if (typeof engine.getAllMatches === 'function') {
+      matches = await engine.getAllMatches();
+    } else if (typeof engine.getLiveAndUpcomingMatches === 'function') {
+      matches = await engine.getLiveAndUpcomingMatches();
+    } else {
+      const live = typeof engine.getLiveMatches === 'function' ? await engine.getLiveMatches() : [];
+      const upcoming = typeof engine.getUpcomingMatches === 'function' ? await engine.getUpcomingMatches() : [];
+      const cached = typeof engine.getCachedMatches === 'function' ? await engine.getCachedMatches() : [];
+      matches = [...live, ...upcoming, ...cached];
+      // remove duplicates by id
+      const map = new Map();
+      matches.forEach(m => { if (m && m.id) map.set(m.id, m); });
+      matches = Array.from(map.values());
+    }
+  } catch (e) {
+    console.error('sitemap fetch error', e);
+    matches = [];
+  }
 
   const staticPages = [
     {
