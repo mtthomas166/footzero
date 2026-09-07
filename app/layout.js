@@ -56,16 +56,6 @@ export default function RootLayout({ children }) {
         <div className="glow-orb glow-orb-emerald w- h- top-[40%] -right- opacity-5 dark:opacity-15 transition-opacity duration-300" />
         <div className="glow-orb glow-orb-purple w- h- -bottom- left-[10%] opacity-5 dark:opacity-15 transition-opacity duration-300" />
 
-          <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H2H1GQNRJH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H2H1GQNRJH');
-</script>
-
         {/* Sticky Glassmorphic Header */}
         <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/70 dark:border-zinc-900/60 dark:bg-[#050508]/60 backdrop-blur-md transition-colors duration-300 flex justify-center w-full">
           <div className="flex h-16 w-full max-w-6xl mx-auto items-center justify-between px-4 sm:px-6 lg:px-8">
