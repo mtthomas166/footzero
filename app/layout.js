@@ -1,6 +1,7 @@
 import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
 import { Database } from 'lucide-react';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'FootyLive — Live Football Streams',
@@ -14,6 +15,8 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-H2H1GQNRJH'; // <-- غير ده بالـ ID بتاعك
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -119,6 +122,20 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </footer>
+
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
