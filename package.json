@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "indexnow": "node scripts/indexnow.mjs",
+    "postbuild": "node scripts/indexnow.mjs"
     "lint": "next lint",
     "build:cloudflare": "opennextjs-cloudflare build",
     "test": "vitest run"
