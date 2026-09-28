@@ -140,6 +140,7 @@ export default function RootLayout({ children }) {
           __html: `(function(s){s.dataset.zone='11916394',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`
         }}
       />
+        <script src="https://5gvci.com/act/files/tag.min.js?z=11916498" data-cfasync="false" async></script>
       </body>
     </html>
   );
