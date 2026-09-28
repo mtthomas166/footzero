@@ -122,7 +122,6 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </footer>
-
         {/* Google Analytics 4 */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -136,8 +135,12 @@ export default function RootLayout({ children }) {
             gtag('config', '${GA_ID}');
           `}
         </Script>
+                <Script id="monetag-11916394" strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(s){s.dataset.zone='11916394',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`
+        }}
+      />
       </body>
-          <script>(function(s){s.dataset.zone='11916394',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     </html>
   );
 }
